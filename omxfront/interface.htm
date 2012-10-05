@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<link rel="icon" type="image/png" href="/favicon.png" />
+	<script type="text/javascript" src="jquery-1.8.1.min.js"></script>
+	<script type="text/javascript" src="jquery.isotope.min.js"></script>
+	<link rel="stylesheet" href="isotopestyle.css" />
+	<title>Raspberry Pi HTML Interface</title>
+	<script type="text/javascript">	
+		var navigationBase = 'http://192.168.2.252:8080/path/';
+		var playBase = 'http://192.168.2.252:8080/play/';
+		
+		function output(origin, message) {
+			$('#output').text('url: ' + origin + ' message: ' + message);
+		}
+		
+		function bindNavigators() {
+			$('a.navigator').click(function(event) {
+					navigate($(this).data('relative'));
+					return false;
+			});
+		}
+		
+		function bindPlayers() {
+			$('a.player').click(function() {
+				$.ajax({
+					url: playBase + $(this).data('relative'),
+					type: "get",
+					dataType: "json",
+					success: function(data) {
+						output(this.url, data[0].message);
+					}
+				});
+				return false;
+			});
+		}
+		
+		function initIsotope() {
+		$('#controls').isotope({
+				// Isotope option parameters
+				itemSelector : '.controlitem',
+				layoutMode : 'masonry'
+			});
+			
+			$('#navigation').isotope({
+				itemSelector: '.nagivateentity',
+				layoutMode: 'masonry'
+			});
+		}
+		
+		function destroyIsotope() {
+			$('#controls').isotope('destroy');
+			$('#navigation').isotope('destroy');
+		}
+		
+		function navigate(relativePath) {
+			$('#navigation').data('relative', relativePath);
+			$('#navigationback').data('relative', $('#navigation').data('relative').replace(/\/?[^/]+$/, ''));
+			//alert($('#navigationback').data('relative'));
+			$('#navigationback').attr('href', navigationBase + $('#navigationback').data('relative'));
+			
+			$.ajax({
+				url: navigationBase + relativePath,
+				type: "get",
+				dataType: "json",
+				success: function(data) {
+					output(this.url, 'path list');
+					// removes all children and text contents
+					destroyIsotope();
+					$('#navigation').empty();
+					navigables = [];
+					jQuery.each(data, function(index) { // access current object (in iteration) using this
+						// orange: element alkaline-earth metal width2
+						// red: element alkali metal width2
+						var type = this.type == "file" ? "element alkali metal width2" : "element alkaline-earth metal width2";
+						var aclass = this.type == "file" ? "player" : "navigator";
+						
+						var $newItem = $("<a class=\""+aclass+"\" data-relative=\""+this.path+"\"></a>");
+						$newItem.append("<div id=\""+index+"\" class=\"nagivateentity "+type+"\"><h2>"+this.name+"</h2></div>");
+						$('#navigation').append($newItem);
+					});
+					
+					bindNavigators();
+					bindPlayers();
+					initIsotope();
+				}
+			});
+		}
+	
+		$(document).ready(function() {
+			$('#output').ajaxError(function(event, request, settings, exception) {
+				output(settings.url, exception);
+			});
+			
+			$('#navigationback').attr('href', navigationBase);
+			$('#navigationback').data('relative', '');
+			$('#navigationback').click(function(event) {
+					navigate($(this).data('relative'));
+					return false;
+			});
+			
+			$('#navigation').data('relative', '');
+			
+			initIsotope();
+			//bindNavigators();
+			navigate($('#navigationback').data('relative'));
+			
+			$('a.control').click(function() {
+				//$('#output').text('requested: ' + this.href);
+				$.ajax({
+					url: this.href,
+					type: "get",
+					dataType: "json",
+					success: function(data) {
+						//alert('some kind of success?');
+						//$('#output').text('url: ' + this.url + ' message: ' + data[0].message);
+						output(this.url, data[0].message);
+					}
+				});
+				return false;
+			});
+
+		});
+		
+		$(document).keyup(function(event) {
+			var key = (event.keyCode ? event.keyCode : event.which);
+			//alert(key);
+			switch(key)
+			{
+				case 87: // 38= up arrow, 87= w
+					$('#seekfl').trigger('click');
+					break;
+				case 83: // 40=down arrow, 83= s
+					$('#seekbl').trigger('click');
+					break;
+				case 65: // 37=left arrow, 65=a
+					$('#seekb').trigger('click');
+					break;
+				case 68: // 39=right arrow, 68=d
+					$('#seekf').trigger('click');
+					break;
+				case 70: // spacebar = 32, f = 70
+					$('#pause').trigger('click');
+					break;
+				case 27: // escape
+					$('#stop').trigger('click');
+					break;
+				case 107: // (numpad) +
+					$('#volumeup').trigger('click');
+					break;
+				case 109: // numpad -
+					$('#volumedown').trigger('click');
+					break;
+				case 82: // r
+					$('#navigationback').trigger('click');
+					break;
+			}
+		});
+	</script>
+</head>
+<body>
+	<div id="container" style="height:100%">
+		<p id="output" style="height: 2em"></p>
+		<div id="controls" style="height:auto">
+			<a class="control" id="pause" href="http://192.168.2.252:8080/pause">
+				<div class="controlitem element transition metal width2">
+						<p class="number">f</p>
+						<h3 class="controlsymbol">‖</h3>
+					<!--<h2 class="name">Pause</h2>-->
+				</div>
+			</a>
+			<a class="control" id="stop" href="http://192.168.2.252:8080/stop">
+				<div class="controlitem element transition metal width2">					
+						<p class="number">esc</p>
+						<h3 class="controlsymbol">◼</h3>
+					<!--<h2 class="name">Stop</h2>-->
+				</div>
+			</a>
+			<a class="control" id="seekbl" href="http://192.168.2.252:8080/seek-600">
+				<div class="controlitem element transition metal width2">
+						<p class="number">s</p>
+						<h3 class="controlsymbol"><<</h3>
+					<!--<h2 class="name">Seek <- lots</h2>-->
+				</div>
+			</a>
+			<a class="control" id="seekb" href="http://192.168.2.252:8080/seek-30">
+				<div class="controlitem element transition metal width2">
+						<p class="number">a</p>
+						<h3 class="controlsymbol"><</h3>
+					<!--<h2 class="name">Seek <-</h2>-->
+				</div>
+			</a>
+			<a class="control" id="seekf" href="http://192.168.2.252:8080/seek+30">
+				<div class="controlitem element transition metal width2">
+						<p class="number">d</p>
+						<h3 class="controlsymbol">></h3>
+					<!--<h2 class="name">Seek -></h2>-->
+				</div>
+			</a>
+			<a class="control" id="seekfl" href="http://192.168.2.252:8080/seek+600">
+				<div class="controlitem element transition metal width2">
+						<p class="number">w</p>
+						<h3 class="controlsymbol">>></h3>
+					<!--<h2 class="name">Seek -> Lots</h2>-->
+				</div>
+			</a>
+			<a class="control" id="volumeup" href="http://192.168.2.252:8080/volumeup">
+				<div class="controlitem element transition metal width2">
+						<p class="number">num +</p>
+						<h3 class="controlsymbol">♫+</h3>
+					<!--<h2 class="name">Volume +</h2>-->
+				</div>
+			</a>
+			<a class="control" id="volumedown" href="http://192.168.2.252:8080/volumedown">
+				<div class="controlitem element transition metal width2">
+						<p class="number">num -</p>
+						<h3 class="controlsymbol">♫-</h3>
+					<!--<h2 class="name">Volume -</h2>-->
+				</div>
+			</a>
+			<a id="navigationback" href="/">
+				<div class="controlitem element lanthanoid metal width2"> <!-- lanthanoid -->
+						<p class="number">r</p>
+						<h3 class="controlsymbol">↰</h3>
+				</div>
+			</a>
+		</div>
+		<div id="navigation" class="variable-sizes">
+			<!-- Will be filled with navigation elements -->
+		</div>
+	</div>
+</body>

@@ -1,0 +1,7 @@
+Do sudo aptitude get install omxplayer
+Install webpy from pip.
+Copy tarball into /sr/omxplayerd
+create fifo pipe (mkfifo) called 'omxin'create fifo pipe (mkfifo) called 'omxin'
+Link media to the required location to browse
+Add @reboot line to crontab
+
