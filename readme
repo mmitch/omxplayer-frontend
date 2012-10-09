@@ -3,5 +3,5 @@ Install webpy from pip.
 Copy files in repository into /usr/omxplayerd.
 create fifo pipe (mkfifo) called 'omxin'.
 Create symlink 'media' to the required location (containing movies, etc) to browse.
-Add @reboot line to crontab.
+Add '@reboot /usr/omxplayerd/omxplayerd.py >/var/log/omxplayerd.log' or similar to root crontab file.
 
