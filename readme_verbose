@@ -1,0 +1,13 @@
+The instructions step by step, more verbose:
+
+Do 'sudo aptitude install omxplayer'. - It refers to the installing of omxplayer itself.
+
+Install webpy from pip. - The command is "sudo pip install web.py"
+
+Copy files in repository into /usr/omxplayerd. - You need to make the directory first if it does not exist. It probably does not.
+
+create fifo pipe (mkfifo) called 'omxin'. - The command for this is "mkfifo omxin", you may need to sudo it, I'm not sure
+
+Create symlink 'media' to the required location (containing movies, etc) to browse. - it needs to be called 'media' and be in the same location as omxplayerd. "ln -s <destination> media"
+
+Add '@reboot /usr/omxplayerd/omxplayerd.py >/var/log/omxplayerd.log' or similar to root crontab file. - the command for opening the root crontab is "sudo crontab -e", it allows you to start things at certain times. In this case, at every reboot of the system.
