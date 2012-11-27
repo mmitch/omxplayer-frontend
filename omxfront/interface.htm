@@ -16,6 +16,7 @@
 		
 		function bindNavigators() {
 			$('a.navigator').click(function(event) {
+					$(this).css('opacity', 0.1);
 					navigate($(this).data('relative'));
 					return false;
 			});
@@ -119,7 +120,6 @@
 				});
 				return false;
 			});
-
 		});
 		
 		$(document).keyup(function(event) {
