@@ -24,6 +24,7 @@
 		
 		function bindPlayers() {
 			$('a.player').click(function() {
+				$(this).css('opacity', 0.1);
 				$.ajax({
 					url: playBase + $(this).data('relative'),
 					type: "get",
