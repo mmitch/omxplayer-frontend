@@ -1,0 +1,17 @@
+
+ Omxplayer-frontend
+ Web frontend for Raspberry Pi omxplayer media player
+ Licensed under GNU GPL v3 or later
+
+ - - - - - - - - - - - - - - - - -
+
+ Originally written by TallOak and Krageon
+
+ This is a fork based on their omxplayer-frontend hosted over at
+ bitbucket: https://bitbucket.org/krageon/omxplayer-frontend
+
+ See the upstream branch for the original import
+ 
+ krageon told me it's ok to clone it to github and put the GPL on it,
+ so I did :-)  thanks!
+
