@@ -7,8 +7,8 @@
 	<link rel="stylesheet" href="isotopestyle.css" />
 	<title>Raspberry Pi HTML Interface</title>
 	<script type="text/javascript">	
-		var navigationBase = 'http://192.168.2.252:8080/path/';
-		var playBase = 'http://192.168.2.252:8080/play/';
+		var navigationBase = '/path/';
+		var playBase = '/play/';
 		
 		function output(origin, message) {
 			$('#output').text('url: ' + origin + ' message: ' + message);
@@ -163,56 +163,56 @@
 	<div id="container" style="height:100%">
 		<p id="output" style="height: 2em"></p>
 		<div id="controls" style="height:auto">
-			<a class="control" id="pause" href="http://192.168.2.252:8080/pause">
+			<a class="control" id="pause" href="/pause">
 				<div class="controlitem element transition metal width2">
 						<p class="number">f</p>
 						<h3 class="controlsymbol">‖</h3>
 					<!--<h2 class="name">Pause</h2>-->
 				</div>
 			</a>
-			<a class="control" id="stop" href="http://192.168.2.252:8080/stop">
+			<a class="control" id="stop" href="/stop">
 				<div class="controlitem element transition metal width2">					
 						<p class="number">esc</p>
 						<h3 class="controlsymbol">◼</h3>
 					<!--<h2 class="name">Stop</h2>-->
 				</div>
 			</a>
-			<a class="control" id="seekbl" href="http://192.168.2.252:8080/seek-600">
+			<a class="control" id="seekbl" href="/seek-600">
 				<div class="controlitem element transition metal width2">
 						<p class="number">s</p>
 						<h3 class="controlsymbol"><<</h3>
 					<!--<h2 class="name">Seek <- lots</h2>-->
 				</div>
 			</a>
-			<a class="control" id="seekb" href="http://192.168.2.252:8080/seek-30">
+			<a class="control" id="seekb" href="/seek-30">
 				<div class="controlitem element transition metal width2">
 						<p class="number">a</p>
 						<h3 class="controlsymbol"><</h3>
 					<!--<h2 class="name">Seek <-</h2>-->
 				</div>
 			</a>
-			<a class="control" id="seekf" href="http://192.168.2.252:8080/seek+30">
+			<a class="control" id="seekf" href="/seek+30">
 				<div class="controlitem element transition metal width2">
 						<p class="number">d</p>
 						<h3 class="controlsymbol">></h3>
 					<!--<h2 class="name">Seek -></h2>-->
 				</div>
 			</a>
-			<a class="control" id="seekfl" href="http://192.168.2.252:8080/seek+600">
+			<a class="control" id="seekfl" href="/seek+600">
 				<div class="controlitem element transition metal width2">
 						<p class="number">w</p>
 						<h3 class="controlsymbol">>></h3>
 					<!--<h2 class="name">Seek -> Lots</h2>-->
 				</div>
 			</a>
-			<a class="control" id="volumeup" href="http://192.168.2.252:8080/volumeup">
+			<a class="control" id="volumeup" href="/volumeup">
 				<div class="controlitem element transition metal width2">
 						<p class="number">num +</p>
 						<h3 class="controlsymbol">♫+</h3>
 					<!--<h2 class="name">Volume +</h2>-->
 				</div>
 			</a>
-			<a class="control" id="volumedown" href="http://192.168.2.252:8080/volumedown">
+			<a class="control" id="volumedown" href="/volumedown">
 				<div class="controlitem element transition metal width2">
 						<p class="number">num -</p>
 						<h3 class="controlsymbol">♫-</h3>
