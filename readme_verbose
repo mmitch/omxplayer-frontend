@@ -9,3 +9,5 @@ In your local repository (that's where the files like this readme are), create f
 Create symlink 'media' to the required location (containing movies, etc) to browse. - it needs to be called 'media' and be in the same location as omxplayerd. "ln -s <destination> media"
 
 Add '@reboot cd path/to/repository; ./omxplayerd.py >/var/log/omxplayerd.log' or similar to root crontab file. - the command for opening the root crontab is "sudo crontab -e", it allows you to start things at certain times. In this case, at every reboot of the system.
+
+By default, omxplayerd will run on port 8080. If you want another port (say, the default port 80 when you have no other webserver running), add the port number as a parameter to omxplayerd.py, e.g. './omxplayerd.py 80'. Of course, this can also be done in root's crontab.
