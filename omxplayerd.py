@@ -39,6 +39,8 @@ command_send={
 'pause':'p',
 'volumedown':'-',
 'volumeup':'+',
+'languagedown':'j',
+'languageup':'k',
 'seek-30':'\x1b\x5b\x44',
 'seek+30':'\x1b\x5b\x43',
 'seek-600':'\x1b\x5b\x42',

@@ -152,6 +152,12 @@
 				case 109: // numpad -
 					$('#volumedown').trigger('click');
 					break;
+				case 75: // k
+					$('#languageup').trigger('click');
+					break;
+				case 74: // j
+					$('#languagedown').trigger('click');
+					break;
 				case 82: // r
 					$('#navigationback').trigger('click');
 					break;
@@ -217,6 +223,20 @@
 						<p class="number">num -</p>
 						<h3 class="controlsymbol">♫-</h3>
 					<!--<h2 class="name">Volume -</h2>-->
+				</div>
+			</a>
+			<a class="control" id="languageup" href="/languageup">
+				<div class="controlitem element transition metal width2">
+						<p class="number">k</p>
+						<h3 class="controlsymbol">L+</h3>
+					<!--<h2 class="name">Language +</h2>-->
+				</div>
+			</a>
+			<a class="control" id="languagedown" href="/languagedown">
+				<div class="controlitem element transition metal width2">
+						<p class="number">j</p>
+						<h3 class="controlsymbol">L-</h3>
+					<!--<h2 class="name">Language -</h2>-->
 				</div>
 			</a>
 			<a id="navigationback" href="/">
