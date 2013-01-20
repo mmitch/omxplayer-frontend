@@ -9,6 +9,7 @@ import string
 
 urls = (
 '^/$','Interface',
+'^/shutdown$','Shutdown',
 '^/play/(.*)$','Play',
 '^/path/?(.*)$','Path',
 '^/playlist/?(.*)$','Playlist',
@@ -63,6 +64,11 @@ class Other:
 class Play:
     def GET(self,file):
         omx_play(file)
+        return '[{\"message\":\"OK\"}]'
+
+class Shutdown:
+    def GET(self):
+        subprocess.call('/sbin/shutdown -h now',shell=True)
         return '[{\"message\":\"OK\"}]'
 
 class Interface:
