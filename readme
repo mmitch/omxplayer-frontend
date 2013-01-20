@@ -2,9 +2,8 @@ In case of questions, please message TallOak.
 
 Do 'sudo aptitude install omxplayer'.
 Install webpy from pip.
-Copy files in repository into /usr/omxplayerd.
 create fifo pipe (mkfifo) called 'omxin'.
 Create symlink 'media' to the required location (containing movies, etc) to browse.
-Add '@reboot /usr/omxplayerd/omxplayerd.py >/var/log/omxplayerd.log' or similar to root crontab file.
+Add '@reboot cd path/to/repository; ./omxplayerd.py >/var/log/omxplayerd.log' or similar to root crontab file.
 
 A more verbose version of this readme is available, where more commands and explanations are given with each line. It is called "readme_verbose".

@@ -7,8 +7,6 @@ import os
 import pipes
 import string
 
-os.chdir('/usr/omxplayerd')
-
 urls = (
 '^/$','Interface',
 '^/play/(.*)$','Play',
