@@ -99,13 +99,13 @@ AUTOSTART:
 
 To automatically start omxplayerd.py on boot, you could write
 initscripts or add omxplayerd.py to /etc/inittab, but the easiest way
-is a crontab entry.  Open your crontab by `crontab -e' and add a line
+is a crontab entry.  Open your crontab via `crontab -e' and add a line
 like this:
 
 @reboot cd git/omxplayer-frontend; ./omxplayerd.py > /tmp/omxplayerd.log
 
 If you want to run omxplayerd.py as root, add this to root's crontab.
-In that case, the logfile should rather be /var/log/omxplayerd.log
+In that case, the logfile should be at /var/log/omxplayerd.log
 
 
 SHUTDOWN:
@@ -113,7 +113,7 @@ SHUTDOWN:
 The web frontend has a small link at the bottom (sometimes just below
 the visible page) that allows system shutdown.  This is intended for
 systems that don't have any keyboard attached and where you don't want
-to open up an SSH session to power down (eg. controlling omxplayerd.py
+to open an SSH session to power down (eg. when controlling omxplayerd.py
 via browser from your smartphone).
 
 For this to work properly, omxplayerd.py has to be run as root (beware
@@ -148,6 +148,6 @@ Let git update the repository:
    $ git update
 
 If it finds updates and downloads them, you shold restart the running
-omxplayerd.py.  Simplest way to do this is a reboot (ugly!) if it is
-started automatically :)
+omxplayerd.py.  The most simple way to do this is a reboot if
+omxpladerd.py is started automatically.  Ugly but working :)
 
