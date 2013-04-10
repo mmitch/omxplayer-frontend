@@ -73,7 +73,7 @@ existing files:
    $ cd ~/git/omxplayer-frontend
    $ ln -s /path/where/your/files/are media
 
-Now you are ready to go an can start the omxplayer daemon:
+Now you are ready to go and can start the omxplayer daemon:
 
    $ cd ~/git/omxplayer-frontend
    $ ./omxplayerd.py
