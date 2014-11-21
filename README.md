@@ -140,8 +140,6 @@ port number as a parameter to omxplayerd.py
 Of course, this can also be done in a crontab.
 
 
- - - - - - - - - - - - - - - - - -
-
 UPDATES:
 ========
 Let git update the repository:
