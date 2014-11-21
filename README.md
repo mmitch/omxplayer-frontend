@@ -49,7 +49,6 @@ After that, install the Python module web.py:
    % pip install web.py
 ```
 
- - - - - - - - - - - - - - - - - -
 
 INSTALLATION:
 =============
