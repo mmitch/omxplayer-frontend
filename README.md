@@ -1,26 +1,21 @@
+omxplayer-frontend
+==================
 
- Omxplayer-frontend
- Web frontend for Raspberry Pi omxplayer media player
- Licensed under GNU GPL v3 or later
+This is a web frontend for the Raspberry Pi omxplayer media player.
+It is licensed under GNU GPL v3 or later and available at 
+https://github.com/mmitch/omxplayer-frontend
 
- https://github.com/mmitch/omxplayer-frontend
+omxplayer-frontend was originally written by TallOak and Krageon.
+This is a fork based on their omxplayer-frontend hosted over at
+bitbucket: https://bitbucket.org/krageon/omxplayer-frontend
 
- - - - - - - - - - - - - - - - - -
+See the upstream branch for the original import.  krageon told me
+it's ok to clone it to github and put the GPL on it, so I did :-)
+Thanks!
 
- Originally written by TallOak and Krageon
+PREREQUISITES
+-------------
 
- This is a fork based on their omxplayer-frontend hosted over at
- bitbucket: https://bitbucket.org/krageon/omxplayer-frontend
-
- See the upstream branch for the original import
- 
- krageon told me it's ok to clone it to github and put the GPL on it,
- so I did :-)  thanks!
- 
- - - - - - - - - - - - - - - - - -
-
-PREREQUISITES:
-==============
 Obviously, you'll need omxplayer.  If it is not already installed on
 your system, it should be available via
 ```
@@ -50,8 +45,9 @@ After that, install the Python module web.py:
 ```
 
 
-INSTALLATION:
-=============
+INSTALLATION
+------------
+
 Put omxplayer-frontend wherever you like.  In this example, we'll put
 it under $HOME/git/omxplayer-frontend.  The easiest way to download
 is to clone the repository:
@@ -91,27 +87,27 @@ root.  Running as root is generally not a very good idea, but on a
 small system for video-only use it might be acceptable.
 
 Root permissions will also be necessary for shutting down your system
-via omxplayerd.py, see SHUTDOWN: below.
+via omxplayerd.py, see SHUTDOWN below.
 
 
-PROPER INSTALLATION:
-==================== 
+PROPER INSTALLATION
+-------------------
 
-AUTOSTART:
-----------
+### AUTOSTART ###
+
 To automatically start omxplayerd.py on boot, you could write
 initscripts or add omxplayerd.py to /etc/inittab, but the easiest way
 is a crontab entry.  Open your crontab via `crontab -e' and add a line
 like this:
-
-@reboot cd git/omxplayer-frontend; ./omxplayerd.py > /tmp/omxplayerd.log
-
+```
+   @reboot cd git/omxplayer-frontend; ./omxplayerd.py > /tmp/omxplayerd.log
+```
 If you want to run omxplayerd.py as root, add this to root's crontab.
 In that case, the logfile should be at /var/log/omxplayerd.log
 
 
-SHUTDOWN:
----------
+### SHUTDOWN ###
+
 The web frontend has a small link at the bottom (sometimes just below
 the visible page) that allows system shutdown.  This is intended for
 systems that don't have any keyboard attached and where you don't want
@@ -127,26 +123,27 @@ have a look at class Shutdown in omxplayerd.py and adjust the
 subprocess.call() accordingly.
 
 
-PORT CHANGE:
-------------
+### PORT CHANGE ###
+
 By default, omxplayerd will run on port 8080. If you want another port
 (say, the default HTTP port 80 when you have no other webserver
 running, so you don't have to enter the :8080 in the URL), add the
 port number as a parameter to omxplayerd.py
-
+```
    $ cd ~/git/omxplayer-frontend
    $ ./omxplayerd.py 80
-
+```
 Of course, this can also be done in a crontab.
 
 
-UPDATES:
-========
-Let git update the repository:
+UPDATES
+-------
 
+Let git update the repository:
+```
    $ cd ~/git/omxplayer-frontend
    $ git update
-
+```
 If it finds updates and downloads them, you shold restart the running
 omxplayerd.py.  The most simple way to do this is a reboot if
 omxpladerd.py is started automatically.  Ugly but working :)
