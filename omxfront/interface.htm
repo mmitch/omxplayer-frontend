@@ -158,6 +158,12 @@
 				case 74: // j
 					$('#languagedown').trigger('click');
 					break;
+				case 77: // m
+					$('#subtitleup').trigger('click');
+					break;
+				case 78: // n
+					$('#subtitledown').trigger('click');
+					break;
 				case 84: // t
 					$('#togglesubs').trigger('click');
 					break;
@@ -247,6 +253,20 @@
 						<p class="number">t</p>
 						<h3 class="controlsymbol">CC</h3>
 					<!--<h2 class="name">Toggle Sub</h2>-->
+				</div>
+			</a>
+			<a class="control" id="togglesubs" href="/subtitledown">
+				<div class="controlitem element transition metal width2">
+						<p class="number">n</p>
+						<h3 class="controlsymbol">C-</h3>
+					<!--<h2 class="name">Subtitle -</h2>-->
+				</div>
+			</a>
+			<a class="control" id="togglesubs" href="/subtitleup">
+				<div class="controlitem element transition metal width2">
+						<p class="number">m</p>
+						<h3 class="controlsymbol">C+</h3>
+					<!--<h2 class="name">Subtitle +</h2>-->
 				</div>
 			</a>
 			<a id="navigationback" href="/">
