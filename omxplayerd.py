@@ -135,7 +135,7 @@ def omx_play(file):
     subprocess.Popen('killall omxplayer.bin',stdout=subprocess.PIPE,shell=True)
     subprocess.Popen('clear',stdout=subprocess.PIPE,shell=True)
     subprocess.Popen('omxplayer -o hdmi '+os.path.join(MEDIA_RDIR,re.escape(file))+' <'+re.escape(OMXIN_FILE),shell=True)
-    omx_send('.')
+    omx_send('z')
     return 1
 
 
