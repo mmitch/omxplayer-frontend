@@ -14,6 +14,43 @@ it's ok to clone it to github and put the GPL on it, so I did :-)
 Thanks!
 
 
+PROJECT STATUS
+--------------
+
+This project is on hiatus, but feel free to use it or improve it.
+
+I might pull in a merge requests, but don't expect me to be fast about
+it or to take everything.
+
+I don't use omxplayer-frontend any more, so don't expect any updates
+from me.
+
+I don't speak Python, so don't expect me to implement any feature
+requests - I'm simply not able to ;-)
+
+
+### PROJECT HISTORY ###
+
+When I got my Raspberry Pi, I was looking for a simple media player
+and found omxplayer-frontend and did some minor adjustments.
+Remember: It's not written by me but by TallOak and krageon, I just
+copied it over from bitbucket to github because I don't have a
+bitbucket account.  omxplayer-frontent was simple, easy and worked
+like a charm and everything was well.
+
+After some time I was not so happy any more needing a working
+networking to control omxplayer-frontend.  I wanted to take the
+Raspberry Pi to a hotel room and hook it up there and did not want to
+bring my own WLAN with me just to control the player.  This gave birth
+to https://github.com/mmitch/omxplayer-console which I still use (and
+sometimes improve) today.  It runs on the console and I control it via
+a cheap IR remote control that acts as a USB HID Keyboard and sends
+simple keypresses.  No networking needed.
+
+So omxplayer-frontend is by no means a bad program, but my use case
+has shifted and now I need something else.
+
+
 PREREQUISITES
 -------------
 
