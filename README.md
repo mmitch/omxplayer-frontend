@@ -35,7 +35,7 @@ When I got my Raspberry Pi, I was looking for a simple media player
 and found omxplayer-frontend and did some minor adjustments.
 Remember: It's not written by me but by TallOak and krageon, I just
 copied it over from bitbucket to github because I don't have a
-bitbucket account.  omxplayer-frontent was simple, easy and worked
+bitbucket account.  omxplayer-frontend was simple, easy and worked
 like a charm and everything was well.
 
 After some time I was not so happy any more needing a working
