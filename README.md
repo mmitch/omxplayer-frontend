@@ -133,11 +133,11 @@ PROPER INSTALLATION
 
 ### AUTOSTART ###
 
-To automatically start omxplayerd.py on boot, you could write
+To automatically start `omxplayerd.py` on boot, you could write
 initscripts or add `omxplayerd.py` to `/etc/inittab`, but the easiest way
 is a crontab entry.  Open your crontab via `crontab -e` and add a line
 like this:
-```
+```bash
    @reboot cd git/omxplayer-frontend; ./omxplayerd.py > /tmp/omxplayerd.log
 ```
 If you want to run `omxplayerd.py` as root, add this to root's crontab.
