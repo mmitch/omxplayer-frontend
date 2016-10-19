@@ -19,7 +19,7 @@ PROJECT STATUS
 
 This project is on hiatus, but feel free to use it or improve it.
 
-I might pull in a merge requests, but don't expect me to be fast about
+I might pull in a merge request, but don't expect me to be fast about
 it or to take everything.
 
 I don't use omxplayer-frontend any more, so don't expect any updates
@@ -43,7 +43,7 @@ networking to control omxplayer-frontend.  I wanted to take the
 Raspberry Pi to a hotel room and hook it up there and did not want to
 bring my own WLAN with me just to control the player.  This gave birth
 to https://github.com/mmitch/omxplayer-console which I still use (and
-sometimes improve) today.  It runs on the console and I control it via
+sometimes improved) today.  It runs on the console and I control it via
 a cheap IR remote control that acts as a USB HID Keyboard and sends
 simple keypresses.  No networking needed.
 
@@ -163,7 +163,7 @@ have a look at class `Shutdown` in `omxplayerd.py` and adjust the
 
 ### PORT CHANGE ###
 
-By default, `omxplayerdpy` will run on port 8080. If you want another
+By default, `omxplayerd.py` will run on port 8080. If you want another
 port (say, the default HTTP port 80 when you have no other webserver
 running, so you don't have to enter the `:8080` in the URL), add the
 port number as a parameter to `omxplayerd.py`
@@ -184,5 +184,5 @@ Let git update the repository:
 ```
 If it finds updates and downloads them, you shold restart the running
 `omxplayerd.py`.  The most simple way to do this is a reboot if
-`omxpladerd.py` is started automatically.  Ugly but working :)
+`omxplayerd.py` is started automatically.  Ugly but working :)
 
