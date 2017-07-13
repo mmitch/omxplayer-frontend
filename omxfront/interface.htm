@@ -57,7 +57,7 @@
 		
 		function navigate(relativePath) {
 			$('#navigation').data('relative', relativePath);
-			$('#navigationback').data('relative', $('#navigation').data('relative').replace(/\/?[^/]+$/, ''));
+			$('#navigationback').data('relative', $('#navigation').data('relative').toString().replace(/\/?[^/]+$/, ''));
 			//alert($('#navigationback').data('relative'));
 			$('#navigationback').attr('href', navigationBase + $('#navigationback').data('relative'));
 			
